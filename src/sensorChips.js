@@ -19,9 +19,6 @@ const styles = theme => ({
 
 class ChipsArray extends React.Component {
   state = {
-    chipData: [
-      { key: 0, label: 'Placeholder' },
-    ],
   };
 
   handleDelete = data => () => {
@@ -38,7 +35,7 @@ class ChipsArray extends React.Component {
 
     return (
       <Paper className={classes.root}>
-        {this.state.chipData.map(data => {
+        {this.props.chipData.map(data => {
           let icon = null;
 
           if (data.label === 'React') {
@@ -50,7 +47,7 @@ class ChipsArray extends React.Component {
               key={data.key}
               icon={icon}
               label={data.label}
-              onDelete={this.handleDelete(data)}
+              onDelete={this.props.handleDelete(data)}
               className={classes.chip}
             />
           );

@@ -8,6 +8,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChipsArray from './sensorChips.js';
+import AddSensor from './addSensor.js';
 
 const styles = theme => ({
   root: {
@@ -32,7 +33,7 @@ const styles = theme => ({
     flexBasis: '33.33%',
   },
   helper: {
-    borderLeft: `2px solid ${theme.palette.divider}`,
+    borderLeft: `2px`,
     padding: `${theme.spacing.unit}px ${theme.spacing.unit * 2}px`,
   },
   link: {
@@ -60,13 +61,10 @@ function ChooseSensorsPanel(props) {
         <ExpansionPanelDetails className={classes.details}>
           <div className={classes.column} />
           <div className={classes.column}>
-            <ChipsArray />
+            <ChipsArray chipData={props.chipData} handleDelete={props.handleDelete} />
           </div>
           <div className={classNames(classes.column, classes.helper)}>
-            <Typography variant="caption">
-              Placeholder.
-              <br />
-            </Typography>
+	    <AddSensor addDir={props.addDir} />
           </div>
         </ExpansionPanelDetails>
       </ExpansionPanel>
