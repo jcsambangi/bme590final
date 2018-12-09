@@ -31,9 +31,7 @@ class DownloadList extends React.Component {
           <Typography className={classes.title}>
               Detected DASHRs:
           </Typography>
-          {//this.props.pins.map(value => (
-          }
-            {[10, 19, 24, 3].map(value => (
+          {this.props.pins.map(value => (
           <ListItem key={value} button>
             <ListItemText primary={`Pin: ${value}`} />
             <ListItemSecondaryAction>
