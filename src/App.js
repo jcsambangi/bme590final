@@ -19,6 +19,7 @@ class App extends Component {
 		  chipData: [],
 		  counter: 0,
           pins: [],
+          checked: [],
 	  };
 	  this.addDir = this.addDir.bind(this);
 	  this.handleDelete = this.handleDelete.bind(this);
@@ -47,6 +48,23 @@ class App extends Component {
     console.log(this.state);
   };
 
+  handleToggle = value => () => {
+    //const { chk } = this.state.checked;
+    const currentIndex = this.state.checked.indexOf(value);
+    const newChecked = [...this.state.checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    this.setState({
+      checked: newChecked,
+    });
+
+    console.log(this.state.checked)
+    }
 
   getPin = () => {
     axios.get('http://localhost:5000/api/dashr/find_pins').then( (res) => {
@@ -56,6 +74,10 @@ class App extends Component {
       });
   }
 
+  sendPins = () => {
+      axios.post('http://localhost:5000/api/dashr/upload', this.state.checked)
+  };
+
   render() {
     return (
         <MuiThemeProvider theme={theme}>
@@ -64,7 +86,7 @@ class App extends Component {
           {//<ChooseSensorsPanel addDir={this.addDir} chipData={this.state.chipData} handleDelete={this.handleDelete} />
           }
           <DownloadBar />
-          <DownloadCard getPin={this.getPin} pins={this.state.pins}/>
+          <DownloadCard getPin={this.getPin} pins={this.state.pins} sendPins={this.sendPins} handleToggle={this.handleToggle} checked={this.state.checked}/>
           {
              // (this.state.pins.length > 0) ? this.state.pins[0] : "No DASHRs Detected"
           }
