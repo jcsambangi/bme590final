@@ -18,7 +18,7 @@ class App extends Component {
 		  allFiles: {},
 		  chipData: [],
 		  counter: 0,
-          'pins': [],
+          pins: [],
 	  };
 	  this.addDir = this.addDir.bind(this);
 	  this.handleDelete = this.handleDelete.bind(this);
@@ -46,13 +46,13 @@ class App extends Component {
     });
     console.log(this.state);
   };
-  
+
 
   getPin = () => {
-    axios.get('http://127.0.0.1:5000/api/dashr/find_pins').then( (data) => {
-      console.log(data);
-      console.log(data.data);
-      this.setState({'pins': data.data});
+    axios.get('http://localhost:5000/api/dashr/find_pins').then( (res) => {
+      console.log(res.data);
+      console.log(res.data.data);
+      this.setState({pins: res.data.data});
       });
   }
 
