@@ -49,9 +49,9 @@ class DownloadList extends React.Component {
           <Typography className={classes.title}>
               Detected DASHRs:
           </Typography>
-        {[0, 1, 2, 3].map(value => (
+        {this.props.pins.map(value => (
           <ListItem key={value} button>
-            <ListItemText primary={`Line item ${value + 1}`} />
+            <ListItemText primary={`Pin: ${value}`} />
             <ListItemSecondaryAction>
               <Checkbox
                 onChange={this.handleToggle(value)}

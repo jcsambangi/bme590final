@@ -8,6 +8,7 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import theme from './theme.js';
 import DownloadCard from './DownloadCard.js'
 import LogCard from './LogCard.js'
+import axios from 'axios';
 //var usb = require('usb')
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
 		  allFiles: {},
 		  chipData: [],
 		  counter: 0,
+          'pins': [],
 	  };
 	  this.addDir = this.addDir.bind(this);
 	  this.handleDelete = this.handleDelete.bind(this);
@@ -44,6 +46,16 @@ class App extends Component {
     });
     console.log(this.state);
   };
+  
+
+  getPin = () => {
+    axios.get('http://127.0.0.1:5000/api/dashr/find_pins').then( (data) => {
+      console.log(data);
+      console.log(data.data);
+      this.setState({'pins': data.data});
+      });
+  }
+
   render() {
     return (
         <MuiThemeProvider theme={theme}>
@@ -52,7 +64,10 @@ class App extends Component {
           {//<ChooseSensorsPanel addDir={this.addDir} chipData={this.state.chipData} handleDelete={this.handleDelete} />
           }
           <DownloadBar />
-          <DownloadCard />
+          <DownloadCard getPin={this.getPin} pins={this.state.pins}/>
+          {
+             // (this.state.pins.length > 0) ? this.state.pins[0] : "No DASHRs Detected"
+          }
 	<LogBar />
           <LogCard />
       </div>

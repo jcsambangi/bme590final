@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import DownloadList from './DownloadList.js';
 import FilesButton from './FilesButton';
+import axios from 'axios';
 
 const styles = {
   card: {
@@ -26,9 +27,12 @@ const styles = {
   },
 };
 
+
+
 function DownloadCard(props) {
   const { classes } = props;
   const bull = <span className={classes.bullet}>•</span>;
+
 
   return (
     <Card className={classes.card}>
@@ -38,10 +42,10 @@ function DownloadCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-          <Button variant="contained" color="secondary" className={classes.button}>Detect DASHRs</Button>
+          <Button variant="contained" color="secondary" className={classes.button} onClick={props.getPin}>Detect DASHRs</Button>
       </CardActions>
         <CardContent>
-        <DownloadList />
+        <DownloadList getPin={props.getPin} pins={props.pins}/>
             <FilesButton />
         </CardContent>
     </Card>
