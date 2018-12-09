@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import SimpleAppBar from './SimpleAppBar.js'
 import ChooseSensorsPanel from './chooseSensorsPanel.js'
-import DownloadPanel from './downloadPanel.js'
-import LogPanel from './logPanel.js'
+import DownloadBar from './DownloadBar.js'
+import LogBar from './LogBar.js'
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import theme from './theme.js';
+import DownloadCard from './DownloadCard.js'
+import LogCard from './LogCard.js'
+//var usb = require('usb')
 
 class App extends Component {
   constructor() {
@@ -41,12 +46,17 @@ class App extends Component {
   };
   render() {
     return (
+        <MuiThemeProvider theme={theme}>
       <div>
 	<SimpleAppBar />
-	<ChooseSensorsPanel addDir={this.addDir} chipData={this.state.chipData} handleDelete={this.handleDelete} />
-	<DownloadPanel />
-	<LogPanel />
+          {//<ChooseSensorsPanel addDir={this.addDir} chipData={this.state.chipData} handleDelete={this.handleDelete} />
+          }
+          <DownloadBar />
+          <DownloadCard />
+	<LogBar />
+          <LogCard />
       </div>
+      </MuiThemeProvider>
     );
   }
 }
