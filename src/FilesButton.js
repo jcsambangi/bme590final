@@ -16,7 +16,7 @@ function FilesButton(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant="contained" color="secondary" className={classes.button}>
+      <Button variant="contained" color="secondary" className={classes.button} onClick={props.sendPins}>
         Harvest files from selected devices
       </Button>
       <input

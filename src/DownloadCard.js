@@ -46,14 +46,14 @@ function DownloadCard(props) {
       </CardActions>
         <CardContent>
         <DownloadList getPin={props.getPin} pins={props.pins} sendPins={props.sendPins} handleToggle={props.handleToggle} checked={props.checked}/>
-            <FilesButton onClick={props.sendPins}/>
+          <FilesButton sendPins={props.sendPins}/>
         </CardContent>
     </Card>
   );
 }
 
 DownloadCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(DownloadCard);
