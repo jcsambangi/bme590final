@@ -21,41 +21,25 @@ const styles = theme => ({
 });
 
 class DownloadList extends React.Component {
-  state = {
-    checked: [1],
-  };
-
-  handleToggle = value => () => {
-    const { checked } = this.state;
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    this.setState({
-      checked: newChecked,
-    });
-  };
 
   render() {
     const { classes } = this.props;
+
 
     return (
       <List dense className={classes.root}>
           <Typography className={classes.title}>
               Detected DASHRs:
           </Typography>
-        {this.props.pins.map(value => (
+          {//this.props.pins.map(value => (
+          }
+            {[10, 19, 24, 3].map(value => (
           <ListItem key={value} button>
             <ListItemText primary={`Pin: ${value}`} />
             <ListItemSecondaryAction>
               <Checkbox
-                onChange={this.handleToggle(value)}
-                checked={this.state.checked.indexOf(value) !== -1}
+                onChange={this.props.handleToggle(value)}
+                checked={this.props.checked.indexOf(value) !== -1}
               />
             </ListItemSecondaryAction>
           </ListItem>
@@ -66,7 +50,7 @@ class DownloadList extends React.Component {
 }
 
 DownloadList.propTypes = {
-  classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(DownloadList);

@@ -45,8 +45,8 @@ function DownloadCard(props) {
           <Button variant="contained" color="secondary" className={classes.button} onClick={props.getPin}>Detect DASHRs</Button>
       </CardActions>
         <CardContent>
-        <DownloadList getPin={props.getPin} pins={props.pins}/>
-            <FilesButton />
+        <DownloadList getPin={props.getPin} pins={props.pins} sendPins={props.sendPins} handleToggle={props.handleToggle} checked={props.checked}/>
+            <FilesButton onClick={props.sendPins}/>
         </CardContent>
     </Card>
   );
