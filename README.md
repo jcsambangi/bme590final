@@ -57,6 +57,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 5) Check the boxes next to the DASHRs that you want to store the data files for.
 6) When the boxes for all desired DASHRs are checked, click the 'HARVEST FILES FROM SELECTED DEVICES' button. 
 7) This will save all of the files from those devices to the database and then return info about what was saved in the log report table in the 'Log' section.
+
 NOTE: After the 'HARVEST FILES FROM SELECTED DEVICES' button is clicked, it takes about 5-10 seconds for the log report info to be populated. Be patient. It may appear like it's not doing anything, but it just takes a little time to process.
 
 ## Quirks
