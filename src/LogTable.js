@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
-    width: '40%',
+    width: '80%',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
       alignItems: 'center',
@@ -22,9 +22,9 @@ const styles = theme => ({
 });
 
 let id = 0;
-function createData(pin, nmfiles) {
+function createData(pin, nmfiles, nts) {
   id += 1;
-  return { id, pin, nmfiles };
+  return { id, pin, nmfiles, nts };
 }
 
 //const rows = [createData('4021', 20), createData('4756', 12), createData('7033', 45)]
@@ -36,24 +36,31 @@ function LogTable(props) {
   var i;
   var rows = [];
   for (i = 0; i < props.logpins.length; i++) {
-    rows.push([createData(props.logpins[i], props.numfiles[i])]);
-}
+    rows.push(createData(props.logpins[i], props.numfiles[i], props.notes[i]));
+    console.log(rows)
+    console.log("rosw[0].id")
+    console.log(rows[0].id)
+    // console.log("rosw[0]" + rows[1])
+  }
+
 
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
-          <TableRow>
+          <TableRow key={0}>
             <TableCell>DASHR Pin Number</TableCell>
             <TableCell numeric>Number of Files Downloaded</TableCell>
+            <TableCell>Notes</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => {
             return (
-              <TableRow>
-                <TableCell>{row.pin}</TableCell>
+            <TableRow key={row.id}>
+                <TableCell numeric>{row.pin}</TableCell>
                 <TableCell numeric>{row.nmfiles}</TableCell>
+                <TableCell>{row.notes}</TableCell>
               </TableRow>
             );
           })}
@@ -61,7 +68,7 @@ function LogTable(props) {
       </Table>
     </Paper>
   );
-}
+} 
 
 LogTable.propTypes = {
   classes: PropTypes.object.isRequired,
