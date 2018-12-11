@@ -9,6 +9,9 @@ const styles = {
   root: {
     flexGrow: 1,
   },
+    appbar: {
+    alignItems: 'center',
+  },
 };
 
 function SimpleAppBar(props) {
@@ -16,9 +19,9 @@ function SimpleAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="static" color="default" className={classes.appbar}>
         <Toolbar>
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h6" color="inherit" >
             Head Impact Exposure Sensor Management Tool
           </Typography>
         </Toolbar>
