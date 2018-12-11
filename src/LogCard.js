@@ -36,7 +36,7 @@ function LogCard(props) {
         <Typography>
           Post-Download Log Report
         </Typography>
-          <LogTable logpins={props.logpins} numfiles={props.numfiles} notes={props.notes} />
+        <LogTable logpins={props.logpins} numfiles={props.numfiles} notes={props.notes} onChange={console.log("Rendering table")}/>
       </CardContent>
     </Card>
   );
