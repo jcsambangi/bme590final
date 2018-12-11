@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
   root: {
@@ -32,6 +33,7 @@ function createData(pin, nmfiles, nts) {
 
 function LogTable(props) {
   const { classes } = props;
+  const { onSelectAllClick, numSelected, rowCount } = props;
 
   var i;
   var rows = [];
@@ -49,6 +51,14 @@ function LogTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow key={0}>
+          <TableCell padding="checkbox">
+            <Checkbox
+              indeterminate={numSelected > 0 && numSelected < rowCount}
+              checked={numSelected === rowCount}
+              onChange={onSelectAllClick}
+            />
+          </TableCell>
+
             <TableCell>DASHR Pin Number</TableCell>
             <TableCell>Number of Files Downloaded</TableCell>
             <TableCell>Notes</TableCell>
@@ -58,6 +68,14 @@ function LogTable(props) {
           {rows.map(row => {
             return (
             <TableRow key={row.id}>
+              <TableCell padding="checkbox">
+                  {//<Checkbox
+
+                      //onChange = {this.props.handleToggle(row)}
+                     // checked={this.props.checked.indexOf(row) !== -1}
+                      ///>
+                  }
+              </TableCell>
                 <TableCell>{row.pin}</TableCell>
                 <TableCell>{row.nmfiles}</TableCell>
                 <TableCell>{row.notes}</TableCell>
