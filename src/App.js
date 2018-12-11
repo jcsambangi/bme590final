@@ -69,13 +69,14 @@ class App extends Component {
   getPin = () => {
     axios.get('http://localhost:5000/api/dashr/find_pins').then( (res) => {
       console.log(res.data);
-      console.log(res.data.data);
-      this.setState({pins: res.data.data});
+      console.log(res.data.pins);
+      this.setState({pins: res.data.pins});
       });
   }
 
   sendPins = () => {
       axios.post('http://localhost:5000/api/dashr/upload', this.state.checked)
+      console.log("??")
   };
 
   render() {
