@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import LogTable from './LogTable.js';
+import DownloadCard from "./DownloadCard";
 
 const styles = {
   card: {
@@ -35,7 +36,7 @@ function LogCard(props) {
         <Typography>
           Post-Download Log Report
         </Typography>
-          <LogTable />
+          <LogTable logpins={props.logpins} numfiles={props.numfiles} notes={props.notes} />
       </CardContent>
     </Card>
   );

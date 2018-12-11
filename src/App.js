@@ -20,6 +20,9 @@ class App extends Component {
 		  counter: 0,
           pins: [],
           checked: [],
+          logpins: [],
+          numfiles: [],
+          notes: [],
 	  };
 	  this.addDir = this.addDir.bind(this);
 	  this.handleDelete = this.handleDelete.bind(this);
@@ -75,8 +78,14 @@ class App extends Component {
   }
 
   sendPins = () => {
-      axios.post('http://localhost:5000/api/dashr/upload', this.state.checked)
-      console.log("??")
+      axios.post('http://localhost:5000/api/dashr/upload', this.state.checked).then(  (lg) => {
+          console.log(lg.data);
+          console.log(lg.data.logpins);
+          console.log(lg.data.numfiles);
+          this.setState({logpins: lg.data.logpins});
+          this.setState({numfiles: lg.data.numfiles});
+          this.setState({notes: lg.data.notes});
+      })
   };
 
   render() {
@@ -87,12 +96,12 @@ class App extends Component {
           {//<ChooseSensorsPanel addDir={this.addDir} chipData={this.state.chipData} handleDelete={this.handleDelete} />
           }
           <DownloadBar />
-          <DownloadCard getPin={this.getPin} pins={this.state.pins} sendPins={this.sendPins} handleToggle={this.handleToggle} checked={this.state.checked}/>
+          <DownloadCard getPin={this.getPin} pins={this.state.pins} sendPins={this.sendPins} logpins={this.state.logpins} numfiles={this.state.numfiles} handleToggle={this.handleToggle} checked={this.state.checked}/>
           {
              // (this.state.pins.length > 0) ? this.state.pins[0] : "No DASHRs Detected"
           }
 	<LogBar />
-          <LogCard />
+          <LogCard logpins={this.state.logpins} numfiles={this.state.numfiles} notes={this.state.notes} />
       </div>
       </MuiThemeProvider>
     );
