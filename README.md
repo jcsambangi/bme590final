@@ -6,6 +6,8 @@ First, in the project directory, run:
 
 ### `npm install`
 
+This only has to be run the very first time you start the React App to initialize it in the directory.
+
 In the project directory, you can then run:
 
 ### `npm start`
@@ -15,6 +17,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+This will need to be run everytime you want to open the React App.
 
 ### `npm test`
 
