@@ -53,7 +53,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 4) All of the detected DASHR Pin numbers will pop up below 'Detected DASHRs:'.
 5) Check the boxes next to the DASHRs that you want to store the data files for.
 6) When the boxes for all desired DASHRs are checked, click the 'HARVEST FILES FROM SELECTED DEVICES' button. 
-7) This will save all of the files from those devices to the database and then return info about what was saved in the log report table under the 'Log' heading.
+7) This will save all of the files from those devices to the database and then return info about what was saved in the log report table in the 'Log' section.
 
 ## Quirks
 
