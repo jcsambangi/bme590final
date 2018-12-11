@@ -10,13 +10,13 @@ import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
-    width: '80%',
+    width: '40%',
     marginTop: theme.spacing.unit * 3,
     overflowX: 'auto',
       alignItems: 'center',
   },
   table: {
-    minWidth: 200,
+    minWidth: 50,
       alignItems: 'center',
   },
 });
@@ -50,7 +50,7 @@ function LogTable(props) {
         <TableHead>
           <TableRow key={0}>
             <TableCell>DASHR Pin Number</TableCell>
-            <TableCell numeric>Number of Files Downloaded</TableCell>
+            <TableCell>Number of Files Downloaded</TableCell>
             <TableCell>Notes</TableCell>
           </TableRow>
         </TableHead>
@@ -58,8 +58,8 @@ function LogTable(props) {
           {rows.map(row => {
             return (
             <TableRow key={row.id}>
-                <TableCell numeric>{row.pin}</TableCell>
-                <TableCell numeric>{row.nmfiles}</TableCell>
+                <TableCell>{row.pin}</TableCell>
+                <TableCell>{row.nmfiles}</TableCell>
                 <TableCell>{row.notes}</TableCell>
               </TableRow>
             );
