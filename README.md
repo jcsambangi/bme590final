@@ -2,7 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+First, in the project directory, run:
+
+### `npm install`
+
+In the project directory, you can then run:
 
 ### `npm start`
 
@@ -42,3 +46,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Quirks
+
+1) This project does not download the data onto the computer, so once the data is put into the database, it cannot be retrieved.
+2) If a time stamp from a new set of data is older than the newest time stamp stored, it won't store the new data. The database stores data chronologically.
