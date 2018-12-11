@@ -28,14 +28,16 @@ function createData(pin, nmfiles) {
 }
 
 //const rows = [createData('4021', 20), createData('4756', 12), createData('7033', 45)]
-var i;
-var rows = [];
-for (i = 0; i < this.props.logpins.length; i++) {
-        rows.push([createData(this.props.logpins[i], this.props.numfiles[i])]);
-}
+
 
 function LogTable(props) {
   const { classes } = props;
+
+  var i;
+  var rows = [];
+  for (i = 0; i < props.logpins.length; i++) {
+    rows.push([createData(props.logpins[i], props.numfiles[i])]);
+}
 
   return (
     <Paper className={classes.root}>
