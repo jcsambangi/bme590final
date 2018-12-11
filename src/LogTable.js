@@ -22,14 +22,17 @@ const styles = theme => ({
 });
 
 let id = 0;
-function createData(pin, numfiles) {
+function createData(pin, nmfiles) {
   id += 1;
-  return { id, pin, numfiles };
+  return { id, pin, nmfiles };
 }
 
-const rows = [createData('4021', 20), createData('4756', 12), createData('7033', 45)]
-
-;
+//const rows = [createData('4021', 20), createData('4756', 12), createData('7033', 45)]
+var i;
+var rows = [];
+for (i = 0; i < this.props.logpins.length; i++) {
+        rows.push([createData(this.props.logpins[i], this.props.numfiles[i])]);
+}
 
 function LogTable(props) {
   const { classes } = props;
@@ -48,7 +51,7 @@ function LogTable(props) {
             return (
               <TableRow>
                 <TableCell>{row.pin}</TableCell>
-                <TableCell numeric>{row.numfiles}</TableCell>
+                <TableCell numeric>{row.nmfiles}</TableCell>
               </TableRow>
             );
           })}
