@@ -66,4 +66,4 @@ NOTE: After the 'HARVEST FILES FROM SELECTED DEVICES' button is clicked, it take
 2) If a time stamp from a new set of data is older than the newest time stamp stored, it won't store the new data. The database stores data chronologically.
 
 ## Additional Info
-A video demo of the data management tool can be found on Claire Niederriter's Drop Box, called 'FinalProject_HIE.MOV'. 
+A video demo of the data management tool can be found on Claire Niederriter's Drop Box on Sakai, called 'FinalProject_HIE.MOV'. 
