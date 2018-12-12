@@ -51,13 +51,16 @@ function LogTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow key={0}>
-          <TableCell padding="checkbox">
-            <Checkbox
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={numSelected === rowCount}
-              onChange={onSelectAllClick}
-            />
-          </TableCell>
+              {//<TableCell>
+                  // <TableCell padding="checkbox">
+                  //<Checkbox
+                  //}
+                  //indeterminate={numSelected > 0 && numSelected < rowCount}
+                  //checked={numSelected === rowCount}
+                  //onChange={onSelectAllClick}
+                  // />
+                  //</TableCell>
+              }
 
             <TableCell>DASHR Pin Number</TableCell>
             <TableCell>Number of Files Downloaded</TableCell>
@@ -68,14 +71,15 @@ function LogTable(props) {
           {rows.map(row => {
             return (
             <TableRow key={row.id}>
-              <TableCell padding="checkbox">
-                  {//<Checkbox
+                {//<TableCell>
+                    //<TableCell padding="checkbox">
+                    //<Checkbox
 
-                      //onChange = {this.props.handleToggle(row)}
-                     // checked={this.props.checked.indexOf(row) !== -1}
-                      ///>
-                  }
-              </TableCell>
+                    //onChange = {this.props.handleToggle(row)}
+                    // checked={this.props.checked.indexOf(row) !== -1}
+                    ///>
+                    //</TableCell>
+                }
                 <TableCell>{row.pin}</TableCell>
                 <TableCell>{row.nmfiles}</TableCell>
                 <TableCell>{row.notes}</TableCell>
