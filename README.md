@@ -64,3 +64,6 @@ NOTE: After the 'HARVEST FILES FROM SELECTED DEVICES' button is clicked, it take
 
 1) This project does not download the data onto the computer, but simply puts the data into the database. Once the data is put in the database, it cannot be retrieved.
 2) If a time stamp from a new set of data is older than the newest time stamp stored, it won't store the new data. The database stores data chronologically.
+
+## Additional Info
+A video demo of the data management tool can be found on Claire Niederriter's Drop Box, called 'FinalProject_HIE.MOV'. 
