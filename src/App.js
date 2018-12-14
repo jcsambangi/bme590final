@@ -19,6 +19,8 @@ class App extends Component {
           	logpins: [],
           	numfiles: [],
           	notes: [],
+		dates: {},
+		checkedDate: [],
 	  };
   }
 
@@ -43,6 +45,9 @@ class App extends Component {
     axios.get('http://localhost:5000/api/dashr/find_pins').then( (res) => {
       console.log(res.data);
       console.log(res.data.pins);
+      console.log(res.data.dates);
+      console.log(res.data.counts)
+      this.setState({dates: res.data.dates});
       this.setState({pins: res.data.pins});
       });
   }
@@ -57,6 +62,36 @@ class App extends Component {
           this.setState({notes: lg.data.notes});
       })
   };
+  handleToggleDate = value => () => {
+    const currentIndex = this.state.checkedDate.indexOf(value);
+    const newCheckedDate = [...this.state.checkedDate];
+
+    if (currentIndex === -1) {
+      newCheckedDate.push(value);
+    } else {
+      newCheckedDate.splice(currentIndex, 1);
+    }
+
+    this.setState({
+      checkedDate: newCheckedDate,
+    });
+
+    console.log(this.state.checkedDate)
+    }
+    sendDates = pin => () => {
+      var key = pin;
+      var dateDict = {};
+      dateDict[key] = this.state.checkedDate;
+      console.log(key)
+      axios.post('http://localhost:5000/api/dashr/onlydates', dateDict).then(  (lg) => {
+          console.log(lg.data);
+          console.log(lg.data.logpins);
+          console.log(lg.data.numfiles);
+          this.setState({logpins: lg.data.logpins});
+          this.setState({numfiles: lg.data.numfiles});
+          this.setState({notes: lg.data.notes});
+      })
+    };
 
   render() {
     return (
@@ -64,7 +99,7 @@ class App extends Component {
       <div>
 	<SimpleAppBar />
           <DownloadBar />
-          <DownloadCard getPin={this.getPin} pins={this.state.pins} sendPins={this.sendPins} logpins={this.state.logpins} numfiles={this.state.numfiles} handleToggle={this.handleToggle} checked={this.state.checked}/>
+          <DownloadCard handleToggleDate={this.handleToggleDate} getPin={this.getPin} sendDates={this.sendDates} checkedDate={this.state.checkedDate} pins={this.state.pins} dates={this.state.dates} sendPins={this.sendPins} logpins={this.state.logpins} numfiles={this.state.numfiles} handleToggle={this.handleToggle} checked={this.state.checked}/>
           {
              // (this.state.pins.length > 0) ? this.state.pins[0] : "No DASHRs Detected"
           }
