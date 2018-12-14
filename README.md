@@ -3,8 +3,7 @@ Front end functionality for the HIE sensor management tool. Back end can be foun
 v1.0.0 released 12/14/18 by Teresa Mao, Claire Niederriter, and Jaydeep Sambangi
 
 ## Overview
-This repository holds a React App that runs on `localhost:3000` which communicates with the server back end via RESTful API requests. It serves as a web-browser-housed user interface for the HIE sensor management tool. Considering front and back ends together, this software can sense locally attached DASHRs, allow the user to select any permutation of them, download and store all the data in the selected DASHRs, and report on how many files were successfully downloaded for each DASHR. Instructions for using this software can be found below and on the above linked back end repository page.    
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository holds a React App that runs on `localhost:3000` which communicates with the server back end via RESTful API requests. It serves as a web-browser-housed user interface for the HIE sensor management tool. Considering front and back ends together, this software can sense locally attached DASHRs, allow the user to select any permutation of them, download and store all the data in the selected DASHRs, and report on how many files were successfully downloaded for each DASHR. Instructions for using this software can be found below and on the above linked back end repository page.
 
 ## Setting Up
 First, install [node.js](https://nodejs.org/en/) on the local machine. Then, once inside the locally cloned repository, run:
