@@ -25,9 +25,25 @@ This runs the app in the development mode. Navigating to [http://localhost:3000]
 NOTE: After the 'HARVEST FILES FROM SELECTED DEVICES' button is clicked, it takes about 5-10 seconds for the log report info to be populated. Be patient. It may appear like it's not doing anything, but it just takes a little time to process.
 
 ## Quirks
-
 1) This project does not download the data onto the computer, but simply puts the data into the database. Once the data is put in the database, it cannot be retrieved.
 2) If a time stamp from a new set of data is older than the newest time stamp stored, it won't store the new data. The database stores data chronologically.
+3) 
+
+## Future Considerations
+* Detailed report of what is in the DASHR currently
+  * Number of files per day, how many days, etc
+  * Be able to select which days worth of data to download
+* Ability to add notes for an upload session
+* More detailed report of what was uploaded to the database in each session
+  * Which days, how many files per day, etc
+* Delete files from DASHR when done uploading
+* Validation that we did download the data
+  * Cross checking file with database
+* Download binary files from database to computer
+* Allow user to add new pins and their corresponding serial number to the database
+* Better log report of what is currently in the database
+* Recognize DASHR by serial output when plugged in
+* INSERT IGNORE statements for adding files rather than checking for more recent timestamps
 
 ## Additional Info
 A video demo of the data management tool can be found on Claire Niederriter's Drop Box on Sakai, called 'FinalProject_HIE.MOV'. 
