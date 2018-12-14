@@ -11,6 +11,7 @@ First, install [node.js](https://nodejs.org/en/) on the local machine. Then, onc
 This only has to be run the very first time the React App is started to install the packages required by the software. Next, run:
 * `npm run start`
 This runs the app in the development mode. Navigating to [http://localhost:3000](http://localhost:3000) within a web browser will allow use of the software (once the back end setup has been complete). Instructions for using the software are below.
+**Make sure you have the backend server running as well**
 
 ## User Guide
 1) Plug in DASHR devices to Manhattan MondoHub.
